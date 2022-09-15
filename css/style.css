@@ -22,21 +22,24 @@ body * {
 }
 
 header {
-  width: 90%;
   display: flex;
   justify-content: center;
-  max-width: 580px;
-  margin: 0 auto;
-  margin-top: 48px;
+  margin-top: 32px;
+  height: 130px;
 }
 
 header div {
   display: flex;
   width: 130px;
+  margin: auto;
   padding: 4px;
   background: linear-gradient(90deg, #9572fc 0%, #43e7ad 50.52%, #e2d45c 100%);
   border-radius: 50%;
+  transition: 0.3s;
+}
 
+header div:hover {
+  transform: scale(1.1);
 }
 
 header img {
@@ -47,14 +50,10 @@ header img {
 main {
   width: 90%;
   max-width: 580px;
-  margin: 0 auto;
+  margin: 32px auto;
   display: grid;
   gap: 24px;
   margin-top: 32px;
-}
-
-main:nth-child(2) {
-  margin-bottom: 16px;
 }
 
 section {
@@ -89,27 +88,26 @@ section ul {
 .games-list img {
   width: 90px;
   border-radius: 8px;
-  transition: .2s;
+  transition: 0.2s;
 }
-
 
 .channel-list img {
   border-radius: 50%;
   width: 70px;
-  transition: .2s;
+  transition: 0.2s;
+  border: 1px solid #443e54;
 }
 
 .socila-list a {
-  transition: .2s;
+  transition: 0.3s;
 }
 
 .socila-list :nth-child(2):hover {
-  filter: drop-shadow(0px 0px 2px  #a713c5) brightness(1);
-
+  filter: drop-shadow(0px 0px 2px #a713c5) brightness(1);
 }
 
 .socila-list a:hover {
-  filter: drop-shadow(0px 0px 2px  #804efd) brightness(1);
+  filter: drop-shadow(0px 0px 2px #804efd) brightness(1);
 }
 
 .channel-list img:hover {
@@ -118,5 +116,49 @@ section ul {
 
 .games-list img:hover {
   box-shadow: -2px 2px 0 0 #9572fc;
-  transform: scale(1.01);
+  transform: scale(1.08);
+}
+
+/* animation */
+
+header div {
+  animation: fromtop 0.9s 0.1s backwards;
+}
+
+main section{
+  animation: fomBottom 0.9s backwards;
+}
+
+main section:nth-child(1) {
+  animation-delay: 0;
+}
+main section:nth-child(2) {
+  animation-delay: .2s;
+}
+main section:nth-child(3) {
+  animation-delay: .6s;
+}
+
+@keyframes fromtop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fomBottom {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
